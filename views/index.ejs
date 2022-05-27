@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📲scrivi o bevi🥃</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <img src="./img/logo.svg" alt="📲scrivi o bevi🥃" id="logo">
+
+    <div class="contatto c">
+        <img src="/img/contatti.svg" class="icon" alt="">
+        <div id="contatto">mamma</div>
+    </div>
+
+    <div class="testo c">
+        <img src="/img/msg.svg" class="icon" alt="">
+        <div id="testo">sto con lei che sta shakerando</div>
+    </div>
+
+    <button onclick="gen()">genera</button>
+    <a href="/regole">regole</a>
+    
+    
+    <script>
+        var frasi = <%- data %>;
+        var contatti = frasi['contatto']
+        var testi = frasi['testo']
+
+        const contatto = document.getElementById('contatto')
+        const testo = document.getElementById('testo')
+
+        function gen(){
+            var c = contatti[Math.floor(Math.random()* contatti.length)]
+            var t = testi[Math.floor(Math.random()* testi.length)]
+
+            //setInterval(scrivi, 400)
+            contatto.innerHTML = c
+            testo.innerHTML = t
+        }
+
+        function scrivi(){
+            contatto.innerHTML = contatti[Math.floor(Math.random()* contatti.length)]
+            testo.innerHTML = testi[Math.floor(Math.random()* testi.length)]
+        }
+
+    </script>
+</body>
+</html>
